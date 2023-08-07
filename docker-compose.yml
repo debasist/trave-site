@@ -1,0 +1,14 @@
+version: '3.8'
+
+
+services:
+  project-name: 
+    image: travel-website
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: travel
+    ports:
+      - "3000:3000"
+    
