@@ -1,23 +1,23 @@
-FROM node:18-alpine
+# Use an official Node.js runtime as the base image
+FROM node:18
 
-WORKDIR /
+# Set the working directory inside the container
+WORKDIR /app
 
-# COPY package.jkage-lock.json
-# son package.json
-
-# COPY . .
-
-
-# Copy package.json and package-lock.json
+# Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
 
-
-RUN npm run build
-
-
+# Install dependencies
 RUN npm install
 
+# Copy the entire application code to the container
+COPY . .
+
+# Build the React app
+RUN npm run build
+
+# Expose a port (change this if your React app uses a different port)
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
-
+# Command to start the application
+CMD ["npm", "start"]
