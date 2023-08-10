@@ -5,7 +5,11 @@ WORKDIR /
 # COPY package.jkage-lock.json
 # son package.json
 
-COPY . .
+# COPY . .
+
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
 
 RUN npm run build
